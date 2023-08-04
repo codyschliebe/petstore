@@ -23,21 +23,22 @@ public class PetStore {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Column(name = "pet_store_id") //added to quell weird duplicate column name error
 	private Long petStoreId;
-
+	
 	private String petStoreName;
 	private String petStoreAddress;
 	private String petStoreCity;
 	private String petStoreState;
 	private String petStoreZip;
 	private String petStorePhone;
-
+	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "pet_store_customer", joinColumns = @JoinColumn(name = "pet_store_id"), inverseJoinColumns = @JoinColumn(name = "customer_id"))
-	Set<Customer> customers = new HashSet<>();
+	private Set<Customer> customers = new HashSet<>();
 
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
