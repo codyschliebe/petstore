@@ -1,5 +1,8 @@
 package pet.store.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,9 +13,6 @@ import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-
-import java.util.Set;
-import java.util.HashSet;
 
 @Entity
 @Data
@@ -26,12 +26,12 @@ public class Customer {
 	private String customerFirstName;
 	private String customerLastName;
 
-	@Column(unique = true)
+	//@Column(unique = true)
 	private String customerEmail;
 
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(mappedBy = "customers", cascade = CascadeType.PERSIST)
-	private Set<PetStore> petStores = new HashSet<>();
+	private Set<PetStore> petStore = new HashSet<>();
 
 }

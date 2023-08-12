@@ -26,7 +26,6 @@ public class PetStore {
 	
 	@Column(name = "pet_store_id") //added to quell weird duplicate column name error
 	private Long petStoreId;
-	
 	private String petStoreName;
 	private String petStoreAddress;
 	private String petStoreCity;

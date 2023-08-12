@@ -19,11 +19,6 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long employeeId;
-
-	//caused duplicate column error, so commented out
-	//@Column(name = "pet_store_id")
-	//private Long petStoreId;
-	
 	private String employeeFirstName;
 	private String employeeLastName;
 	private String employeePhone;

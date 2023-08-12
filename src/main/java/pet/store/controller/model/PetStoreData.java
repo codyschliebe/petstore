@@ -11,9 +11,7 @@ import pet.store.entity.PetStore;
 
 @Data
 @NoArgsConstructor
-
 public class PetStoreData {
-
 	private Long petStoreId;
 	private String petStoreName;
 	private String petStoreAddress;
@@ -21,7 +19,6 @@ public class PetStoreData {
 	private String petStoreState;
 	private String petStoreZip;
 	private String petStorePhone;
-
 	private Set<PetStoreCustomer> customers = new HashSet<>();
 	private Set<PetStoreEmployee> employees = new HashSet<>();
 
@@ -42,6 +39,7 @@ public class PetStoreData {
 			customers.add(new PetStoreCustomer(customer));
 		}
 		employees = getEmployees();
+		customers = getCustomers();
 	}
 
 	@Data
@@ -53,10 +51,10 @@ public class PetStoreData {
 		private String customerEmail;
 
 		public PetStoreCustomer(Customer customer) {
-			customerId = getCustomerId();
-			customerFirstName = getCustomerFirstName();
-			customerLastName = getCustomerLastName();
-			customerEmail = getCustomerEmail();
+			customerId = customer.getCustomerId();
+			customerFirstName = customer.getCustomerFirstName();
+			customerLastName = customer.getCustomerLastName();
+			customerEmail = customer.getCustomerEmail();
 		}
 	}
 
@@ -70,12 +68,11 @@ public class PetStoreData {
 		private String employeeJobTitle;
 
 		public PetStoreEmployee(Employee employee) {
-			employeeId = getEmployeeId();
-			employeeFirstName = getEmployeeFirstName();
-			employeeLastName = getEmployeeLastName();
-			employeePhone = getEmployeePhone();
-			employeeJobTitle = getEmployeeJobTitle();
+			employeeId = employee.getEmployeeId();
+			employeeFirstName = employee.getEmployeeFirstName();
+			employeeLastName = employee.getEmployeeLastName();
+			employeePhone = employee.getEmployeePhone();
+			employeeJobTitle = employee.getEmployeeJobTitle();
 		}
 	}
-
 }
